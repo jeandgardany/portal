@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160509211028) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "nome",        limit: 255,                null: false
-    t.integer  "matricula",   limit: 4,   default: 1003, null: false
+    t.integer  "matricula",   limit: 4,   default: 1001, null: false
     t.date     "nascimento",                             null: false
     t.string   "endereco",    limit: 255,                null: false
     t.date     "data_cadast",                            null: false
@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 20160509211028) do
   end
 
   create_table "funcionarios", force: :cascade do |t|
-    t.string   "nome",       limit: 255
-    t.integer  "matricula",  limit: 4
-    t.date     "nascimento"
-    t.string   "endereco",   limit: 255
-    t.date     "admissao"
+    t.string   "nome",       limit: 255,                null: false
+    t.integer  "matricula",  limit: 4,   default: 1001, null: false
+    t.date     "nascimento",                            null: false
+    t.string   "endereco",   limit: 255,                null: false
+    t.date     "admissao",                              null: false
     t.integer  "user_id",    limit: 4
     t.integer  "funcao_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "funcionarios", ["funcao_id"], name: "index_funcionarios_on_funcao_id", using: :btree

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Funcaos</h1>
+<h1>:: Funçoes ::</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @funcaos.each do |funcao| %>
       <tr>
         <td><%= funcao.cargo %></td>
-        <td><%= link_to 'Show', funcao %></td>
-        <td><%= link_to 'Edit', edit_funcao_path(funcao) %></td>
-        <td><%= link_to 'Destroy', funcao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar |', funcao %></td>
+        <td><%= link_to 'Editar |', edit_funcao_path(funcao) %></td>
+        <td><%= link_to 'Apagar', funcao, method: :delete, data: { confirm: 'Voce tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Funcao', new_funcao_path %>
+<%= link_to 'Novo Funçao', new_funcao_path %>
