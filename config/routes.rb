@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :alunos
+  resources :alunos
   #root :to => redirect('/users/sign_in')
   resources :funcionarios
   resources :funcaos
