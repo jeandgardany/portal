@@ -28,7 +28,7 @@ class FuncaosController < ApplicationController
 
     respond_to do |format|
       if @funcao.save
-        format.html { redirect_to @funcao, notice: 'Funcao was successfully created.' }
+        format.html { redirect_to @funcao, notice: 'Funcao criada com sucesso.' }
         format.json { render :show, status: :created, location: @funcao }
       else
         format.html { render :new }

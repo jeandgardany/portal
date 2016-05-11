@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  resources :cursos
   resources :alunos
-  resources :alunos
-  #root :to => redirect('/users/sign_in')
   resources :funcionarios
   resources :funcaos
   devise_for :users
-  root to: 'users#index'
+  get    'sign_in'   => 'sessions#new'
+  post   'sign_in'   => 'sessions#create'
+  delete 'sign_out'  => 'sessions#destroy'  
+  root 'users#index'
   match 'index' => 'funcionarios#index', via: 'get'
    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

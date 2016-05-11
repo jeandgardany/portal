@@ -1,7 +1,7 @@
 <%= form_for(@aluno) do |f| %>
   <% if @aluno.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+      <h2><%= pluralize(@aluno.errors.count, "error") %> este aluno estar proibido de ser salvo:</h2>
 
       <ul>
       <% @aluno.errors.full_messages.each do |message| %>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :nascimento %><br>
-    <%= f.date_select :nascimento %>
+    <%= f.date_select :nascimento, :start_year => 1950, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :endereco %><br>
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :data_cadastro %><br>
-    <%= f.date_select :data_cadast %>
+    <%= f.date_select :data_cadast, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
   </div>
   <div class="actions">
     <%= f.submit %>

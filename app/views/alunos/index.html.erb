@@ -29,6 +29,7 @@
         <td><%= link_to 'Apagar', aluno, method: :delete, data: { confirm: 'Voce tem certeza?' } %></td>
       </tr>
     <% end %>
+    <%= paginate @alunos %>
   </tbody>
 </table>
 

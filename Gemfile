@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'cancan'
 gem 'pundit'
+gem "kaminari"
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'

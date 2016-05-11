@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :Nascimento %><br>
-    <%= f.date_select :nascimento %>
+    <%= f.date_select :nascimento, :start_year => 1950, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :Endereço %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :Admissao %><br>
-    <%= f.date_select :admissao %>
+    <%= f.date_select :admissao, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :Usuario %><br>
