@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511004235) do
+ActiveRecord::Schema.define(version: 20160511223950) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "nome",        limit: 255,                null: false
@@ -24,17 +24,30 @@ ActiveRecord::Schema.define(version: 20160511004235) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "alunos", ["matricula"], name: "matricula", unique: true, using: :btree
   add_index "alunos", ["user_id"], name: "index_alunos_on_user_id", using: :btree
 
   create_table "cursos", force: :cascade do |t|
-    t.string   "nome",       limit: 255
-    t.string   "codigo",     limit: 255
-    t.string   "duracao",    limit: 255
-    t.string   "tipo",       limit: 255
+    t.string   "nome",       limit: 255, null: false
+    t.string   "codigo",     limit: 255, null: false
+    t.string   "duracao",    limit: 255, null: false
+    t.string   "tipo",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "disciplinas", force: :cascade do |t|
+    t.string   "nome",           limit: 255
+    t.integer  "codigo",         limit: 4
+    t.integer  "curso_id",       limit: 4
+    t.integer  "funcao_id",      limit: 4
+    t.integer  "funcionario_id", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "disciplinas", ["curso_id"], name: "index_disciplinas_on_curso_id", using: :btree
+  add_index "disciplinas", ["funcao_id"], name: "index_disciplinas_on_funcao_id", using: :btree
+  add_index "disciplinas", ["funcionario_id"], name: "index_disciplinas_on_funcionario_id", using: :btree
 
   create_table "funcaos", force: :cascade do |t|
     t.string   "cargo",      limit: 255
@@ -55,7 +68,6 @@ ActiveRecord::Schema.define(version: 20160511004235) do
   end
 
   add_index "funcionarios", ["funcao_id"], name: "index_funcionarios_on_funcao_id", using: :btree
-  add_index "funcionarios", ["matricula"], name: "matricula", unique: true, using: :btree
   add_index "funcionarios", ["user_id"], name: "index_funcionarios_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -77,6 +89,9 @@ ActiveRecord::Schema.define(version: 20160511004235) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "alunos", "users"
+  add_foreign_key "disciplinas", "cursos"
+  add_foreign_key "disciplinas", "funcaos"
+  add_foreign_key "disciplinas", "funcionarios"
   add_foreign_key "funcionarios", "funcaos"
   add_foreign_key "funcionarios", "users"
 end
