@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :turmas
   resources :disciplinas
   get 'sessions/new'
   resources :cursos

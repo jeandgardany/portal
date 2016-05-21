@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511223950) do
+ActiveRecord::Schema.define(version: 20160521113835) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "nome",        limit: 255,                null: false
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20160511223950) do
   end
 
   create_table "disciplinas", force: :cascade do |t|
-    t.string   "nome",           limit: 255
-    t.integer  "codigo",         limit: 4
+    t.string   "nome",           limit: 255, null: false
+    t.integer  "codigo",         limit: 4,   null: false
     t.integer  "curso_id",       limit: 4
     t.integer  "funcao_id",      limit: 4
     t.integer  "funcionario_id", limit: 4
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160511223950) do
   add_index "disciplinas", ["funcionario_id"], name: "index_disciplinas_on_funcionario_id", using: :btree
 
   create_table "funcaos", force: :cascade do |t|
-    t.string   "cargo",      limit: 255
+    t.string   "cargo",      limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -69,6 +69,20 @@ ActiveRecord::Schema.define(version: 20160511223950) do
 
   add_index "funcionarios", ["funcao_id"], name: "index_funcionarios_on_funcao_id", using: :btree
   add_index "funcionarios", ["user_id"], name: "index_funcionarios_on_user_id", using: :btree
+
+  create_table "turmas", force: :cascade do |t|
+    t.string   "codigo",        limit: 255, null: false
+    t.string   "turno",         limit: 255, null: false
+    t.string   "semestre",      limit: 255, null: false
+    t.integer  "disciplina_id", limit: 4
+    t.integer  "capacidade",    limit: 4,   null: false
+    t.integer  "aluno_id",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "turmas", ["aluno_id"], name: "index_turmas_on_aluno_id", using: :btree
+  add_index "turmas", ["disciplina_id"], name: "index_turmas_on_disciplina_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -94,4 +108,6 @@ ActiveRecord::Schema.define(version: 20160511223950) do
   add_foreign_key "disciplinas", "funcionarios"
   add_foreign_key "funcionarios", "funcaos"
   add_foreign_key "funcionarios", "users"
+  add_foreign_key "turmas", "alunos"
+  add_foreign_key "turmas", "disciplinas"
 end

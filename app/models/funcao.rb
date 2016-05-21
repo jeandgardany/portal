@@ -1,4 +1,4 @@
 class Funcao < ActiveRecord::Base
-	  belongs_to :funcionario
+	  has_many :funcionario
 
 end
