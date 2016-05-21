@@ -32,8 +32,8 @@
     <%= f.number_field :capacidade %>
   </div>
   <div class="field">
-    <%= f.label :aluno_id %><br>
-    <%= f.collection_select :aluno_id, Aluno.all, :id, :nome %>
+    <%= f.label :alunos_ids %><br>
+    <%= f.text_field :alunos, turma.alunos.empty?  => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,4 +1,4 @@
 class Turma < ActiveRecord::Base
   belongs_to :disciplina
-  belongs_to :aluno
+  has_many :alunos
 end

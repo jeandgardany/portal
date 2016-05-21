@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521113835) do
+ActiveRecord::Schema.define(version: 20160521180035) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "nome",        limit: 255,                null: false
@@ -76,12 +76,11 @@ ActiveRecord::Schema.define(version: 20160521113835) do
     t.string   "semestre",      limit: 255, null: false
     t.integer  "disciplina_id", limit: 4
     t.integer  "capacidade",    limit: 4,   null: false
-    t.integer  "aluno_id",      limit: 4
+    t.string   "alunos",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
-  add_index "turmas", ["aluno_id"], name: "index_turmas_on_aluno_id", using: :btree
   add_index "turmas", ["disciplina_id"], name: "index_turmas_on_disciplina_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -108,6 +107,5 @@ ActiveRecord::Schema.define(version: 20160521113835) do
   add_foreign_key "disciplinas", "funcionarios"
   add_foreign_key "funcionarios", "funcaos"
   add_foreign_key "funcionarios", "users"
-  add_foreign_key "turmas", "alunos"
   add_foreign_key "turmas", "disciplinas"
 end

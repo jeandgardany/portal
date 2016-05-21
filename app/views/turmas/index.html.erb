@@ -23,10 +23,10 @@
         <td><%= turma.semestre %></td>
         <td><%= turma.disciplina.nome %></td>
         <td><%= turma.capacidade %></td>
-        <td><%= turma.aluno.nome %></td>
+        <td><%= turma.alunos_id %></td>
         <td><%= link_to 'Mostrar |', turma %></td>
         <td><%= link_to 'Editar |', edit_turma_path(turma) %></td>
-        <td><%= link_to 'Apagar', turma, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Apagar', turma, method: :delete, data: { confirm: 'Voce tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
