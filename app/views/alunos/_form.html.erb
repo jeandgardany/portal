@@ -1,7 +1,7 @@
 <%= form_for(@aluno) do |f| %>
   <% if @aluno.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@aluno.errors.count, "error") %> este aluno estar proibido de ser salvo:</h2>
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
 
       <ul>
       <% @aluno.errors.full_messages.each do |message| %>
@@ -17,23 +17,43 @@
   </div>
   <div class="field">
     <%= f.label :matricula %><br>
-    <%= f.number_field :matricula %>
+    <%= f.text_field :matricula %>
   </div>
   <div class="field">
-    <%= f.label :nascimento %><br>
-    <%= f.date_select :nascimento, :start_year => 1950, :order => [:day, :month, :year] %>
+    <%= f.label :sexo %><br>
+    <%= f.select(:sexo, ["Masculino","Feminino"], prompt: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascimento %><br>
+    <%= f.date_select :data_nascimento %>
   </div>
   <div class="field">
     <%= f.label :endereco %><br>
     <%= f.text_field :endereco %>
   </div>
   <div class="field">
-    <%= f.label :data_cadastro %><br>
-    <%= f.date_select :data_cadast, :order => [:day, :month, :year] %>
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.collection_select :user_id, User.all, :id, :email %>
+    <%= f.label :rg %><br>
+    <%= f.text_field :rg %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "E-mail" %><br>
+    <%= f.collection_select :user_id, User.all, :id, :email, prompt: "Selecione" %>
+  </div>
+  <div class="field">
+    <%= f.label :curso_id %><br>
+    <%= f.collection_select :curso_id, Curso.all, :id, :nome, prompt: "Selecione" %>
+  </div>
+  <div class="field">
+    <%= f.label :turma_id %><br>
+    <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione" %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select(:status, ["Ativo", "Inativo"]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

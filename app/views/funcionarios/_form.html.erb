@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :Matricula %><br>
-    <%= f.number_field :matricula %>
+    <%= f.text_field :matricula %>
   </div>
   <div class="field">
     <%= f.label :Nascimento %><br>
@@ -28,17 +28,32 @@
     <%= f.text_field :endereco %>
   </div>
   <div class="field">
-    <%= f.label :Admissao %><br>
+    <%= f.label :Admissão %><br>
     <%= f.date_select :admissao, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
-    <%= f.label :Usuario %><br>
+    <%= f.label :Usuário %><br>
     <%= f.collection_select :user_id, User.all, :id, :email %>
   </div>
   <div class="field">
-    <%= f.label :Funçao %><br>
+    <%= f.label :Função %><br>
     <%= f.collection_select :funcao_id, Funcao.all, :id, :cargo %>
-    
+ </div>
+ <div class="field">
+    <%= f.label :Sexo %><br>
+    <%= f.select(:sexo, ["Feminino", "Masculino"], prompt: "Selecione") %>
+  </div>
+  <div class="field">
+    <%= f.label :CPF %><br>
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :RG %><br>
+    <%= f.text_field :rg %>
+  </div>
+  <div class="field">
+    <%= f.label :Status %><br>
+    <%= f.select(:status, ["Ativo", "Inativo"]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -6,9 +6,9 @@ RSpec.describe "turmas/new", type: :view do
       :codigo => "MyString",
       :turno => "MyString",
       :semestre => "MyString",
-      :disciplina => nil,
       :capacidade => 1,
-      :aluno => nil
+      :funcionario => nil,
+      :disciplina => nil
     ))
   end
 
@@ -23,11 +23,11 @@ RSpec.describe "turmas/new", type: :view do
 
       assert_select "input#turma_semestre[name=?]", "turma[semestre]"
 
-      assert_select "input#turma_disciplina_id[name=?]", "turma[disciplina_id]"
-
       assert_select "input#turma_capacidade[name=?]", "turma[capacidade]"
 
-      assert_select "input#turma_aluno_id[name=?]", "turma[aluno_id]"
+      assert_select "input#turma_funcionario_id[name=?]", "turma[funcionario_id]"
+
+      assert_select "input#turma_disciplina_id[name=?]", "turma[disciplina_id]"
     end
   end
 end

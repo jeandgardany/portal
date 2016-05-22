@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Codigo:</strong>
+  <strong>Código:</strong>
   <%= @disciplina.codigo %>
 </p>
 
@@ -16,13 +16,19 @@
 </p>
 
 <p>
-  <strong>Funcionario:</strong>
+  <strong>Funcionário:</strong>
   <%= @disciplina.funcionario.nome %>
 </p>
 
 <p>
-  <strong>Funcao:</strong>
+  <strong>Cargo:</strong>
   <%= @disciplina.funcao.cargo %>
+</p>
+<p>
+  <strong>Alunos:</strong>
+  <% @disciplina.alunos.each do |aluno| %>
+  <li><%= "Matricula: #{aluno.matricula} - Nome: #{aluno.nome}" %></li>
+  <% end %>
 </p>
 
 

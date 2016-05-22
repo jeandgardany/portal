@@ -6,9 +6,9 @@ RSpec.describe "turmas/show", type: :view do
       :codigo => "Codigo",
       :turno => "Turno",
       :semestre => "Semestre",
-      :disciplina => nil,
       :capacidade => 1,
-      :aluno => nil
+      :funcionario => nil,
+      :disciplina => nil
     ))
   end
 
@@ -17,8 +17,8 @@ RSpec.describe "turmas/show", type: :view do
     expect(rendered).to match(/Codigo/)
     expect(rendered).to match(/Turno/)
     expect(rendered).to match(/Semestre/)
-    expect(rendered).to match(//)
     expect(rendered).to match(/1/)
+    expect(rendered).to match(//)
     expect(rendered).to match(//)
   end
 end

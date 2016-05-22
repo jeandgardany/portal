@@ -21,18 +21,34 @@
 </p>
 
 <p>
-  <strong>Admissao:</strong>
+  <strong>Admissão:</strong>
   <%= @funcionario.admissao %>
 </p>
 
 <p>
-  <strong>Usuario:</strong>
+  <strong>Usuário:</strong>
   <%= @funcionario.user.email %>
 </p>
 
 <p>
-  <strong>Funçao:</strong>
+  <strong>Função:</strong>
   <%= @funcionario.funcao.cargo %>
+</p>
+<p>
+  <strong>Sexo:</strong>
+  <%= @funcionario.sexo %>
+</p>
+<p>
+  <strong>CPF:</strong>
+  <%= @funcionario.cpf %>
+</p>
+<p>
+  <strong>RG:</strong>
+  <%= @funcionario.rg %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @funcionario.status %>
 </p>
 
 <%= link_to 'Editar', edit_funcionario_path(@funcionario) %> |

@@ -7,17 +7,17 @@ RSpec.describe "turmas/index", type: :view do
         :codigo => "Codigo",
         :turno => "Turno",
         :semestre => "Semestre",
-        :disciplina => nil,
         :capacidade => 1,
-        :aluno => nil
+        :funcionario => nil,
+        :disciplina => nil
       ),
       Turma.create!(
         :codigo => "Codigo",
         :turno => "Turno",
         :semestre => "Semestre",
-        :disciplina => nil,
         :capacidade => 1,
-        :aluno => nil
+        :funcionario => nil,
+        :disciplina => nil
       )
     ])
   end
@@ -27,8 +27,8 @@ RSpec.describe "turmas/index", type: :view do
     assert_select "tr>td", :text => "Codigo".to_s, :count => 2
     assert_select "tr>td", :text => "Turno".to_s, :count => 2
     assert_select "tr>td", :text => "Semestre".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

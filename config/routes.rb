@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :alunos
   resources :turmas
   resources :disciplinas
   get 'sessions/new'
   resources :cursos
-  resources :alunos
   resources :funcionarios
   resources :funcaos
   devise_for :users

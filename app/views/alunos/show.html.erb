@@ -11,23 +11,53 @@
 </p>
 
 <p>
-  <strong>Nascimento:</strong>
-  <%= @aluno.nascimento %>
+  <strong>Sexo:</strong>
+  <%= @aluno.sexo %>
 </p>
 
 <p>
-  <strong>Endereço:</strong>
+  <strong>Data nascimento:</strong>
+  <%= @aluno.data_nascimento %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
   <%= @aluno.endereco %>
 </p>
 
 <p>
-  <strong>Data cadastro:</strong>
-  <%= @aluno.data_cadast %>
+  <strong>Cpf:</strong>
+  <%= @aluno.cpf %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Rg:</strong>
+  <%= @aluno.rg %>
+</p>
+
+<p>
+  <strong>User:</strong>
   <%= @aluno.user.email %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @aluno.curso.nome %>
+</p>
+
+<p>
+  <strong>Turma:</strong>
+  <%= @aluno.turma_id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @aluno.status %>
+</p>
+<p>
+<strong>Disciplinas:</strong>
+  <% @aluno.disciplinas.each do |disciplina| %>
+  <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
+<% end %>
 </p>
 
 <%= link_to 'Editar', edit_aluno_path(@aluno) %> |

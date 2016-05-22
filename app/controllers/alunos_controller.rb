@@ -1,16 +1,16 @@
 class AlunosController < ApplicationController
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
+  before_action :set_disciplina, only: [:edit, :update, :new]
 
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all.page(params['page']).per(5)
+    @alunos = Aluno.all
   end
 
   # GET /alunos/1
   # GET /alunos/1.json
   def show
-
   end
 
   # GET /alunos/new
@@ -67,9 +67,12 @@ class AlunosController < ApplicationController
     def set_aluno
       @aluno = Aluno.find(params[:id])
     end
+    def set_disciplina
+      @disciplinas = Disciplina.all
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aluno_params
-      params.require(:aluno).permit(:nome, :matricula, :nascimento, :endereco, :data_cadast, :user_id)
+      params.require(:aluno).permit(:nome, :matricula, :data_nascimento, :endereco, :cpf, :rg, :user_id, :curso_id, :disciplina_id, :turma_id, :status, :sexo)
     end
 end

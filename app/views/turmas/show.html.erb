@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Codigo:</strong>
+  <strong>Código:</strong>
   <%= @turma.codigo %>
 </p>
 
@@ -16,19 +16,25 @@
 </p>
 
 <p>
-  <strong>Disciplina:</strong>
-  <%= @turma.disciplina.nome %>
-</p>
-
-<p>
   <strong>Capacidade:</strong>
   <%= @turma.capacidade %>
 </p>
 
 <p>
-  <strong>Aluno:</strong>
-  <%= @turma.alunos_ids %>
+  <strong>Funcionário:</strong>
+  <%= @turma.funcionario.nome %>
 </p>
 
-<%= link_to 'Edit', edit_turma_path(@turma) %> |
-<%= link_to 'Back', turmas_path %>
+<p>
+  <strong>Disciplina:</strong>
+  <%= @turma.disciplina.nome %>
+</p>
+<p>
+  <strong>Alunos:</strong>
+  <% @turma.alunos.each do |aluno| %>
+  <li><%= "Matricula: #{aluno.matricula} - Nome: #{aluno.nome}" %></li>
+  <% end %>
+</p>
+
+<%= link_to 'Editar', edit_turma_path(@turma) %> |
+<%= link_to 'Voltar', turmas_path %>

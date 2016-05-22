@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Codigo &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Duraçao &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Código &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Duração &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Tipo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th colspan="3"></th>
     </tr>
@@ -22,7 +22,7 @@
         <td><%= curso.tipo %></td>
         <td><%= link_to 'Mostrar |', curso %></td>
         <td><%= link_to 'Editar |', edit_curso_path(curso) %></td>
-        <td><%= link_to 'Apagar', curso, method: :delete, data: { confirm: 'Voce tem certeza?' } %></td>
+        <td><%= link_to 'Apagar', curso, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

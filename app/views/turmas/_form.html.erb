@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :codigo %><br>
+    <%= f.label :codigo, "Código" %><br>
     <%= f.text_field :codigo %>
   </div>
   <div class="field">
-    <%= f.label :turno %><br>
-    <%= f.select :turno, ['Manha', 'Tarde', 'Noite'] %>
+    <%= f.label :turno, "Turno" %><br>
+    <%= f.select(:turno, ["Manha", "Tarde", "Noite"], prompt: "Selecione") %>
   </div>
   <div class="field">
-    <%= f.label :semestre %><br>
+    <%= f.label :semestre, "Semestre" %><br>
     <%= f.text_field :semestre %>
   </div>
   <div class="field">
-    <%= f.label :disciplina_id %><br>
-    <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :capacidade %><br>
+    <%= f.label :capacidade, "Capacidade" %><br>
     <%= f.number_field :capacidade %>
   </div>
   <div class="field">
-    <%= f.label :alunos_ids %><br>
-    <%= f.text_field :alunos, turma.alunos.empty?  => true %>
+    <%= f.label :funcionario_id, "Funcionário" %><br>
+    <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :disciplina_id, "Disciplina" %><br>
+    <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome %>
   </div>
   <div class="actions">
     <%= f.submit %>

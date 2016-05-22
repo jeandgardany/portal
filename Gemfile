@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'cancan'
 gem 'pundit'
 gem "kaminari"
+gem "paperclip", "~> 5.0.0.beta1"
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
