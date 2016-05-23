@@ -1,0 +1,25 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Código &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Duração &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Tipo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cursos.each do |curso| %>
+      <tr>
+        <td><%= curso.nome %></td>
+        <td><%= curso.codigo %></td>
+        <td><%= curso.duracao %></td>
+        <td><%= curso.tipo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,4 +1,5 @@
 class TurmasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
 
   # GET /turmas

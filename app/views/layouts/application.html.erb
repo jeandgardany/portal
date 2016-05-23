@@ -18,6 +18,7 @@
       <a class="brand" href="/cursos">Cursos</a>
       <a class="brand" href="/disciplinas">Disciplinas</a>
       <a class="brand" href="/turmas">Turmas</a>
+      <a class="brand" href="/controle_usuarios/index">Controle de Usuários</a>
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
           Logado com: <strong><%= current_user.email %></strong>.
@@ -32,9 +33,7 @@
   </div>
 </div>
 
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    
 <div class="container">
   <%= yield %>
 </div>

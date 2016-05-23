@@ -1,37 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Turmas</h1>
+<% if policy(@turmas).index? %>
+<%= render partial: "admin_index" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Código</th>
-      <th>Turno</th>
-      <th>Semestre</th>
-      <th>Capacidade</th>
-      <th>Funcionário</th>
-      <th>Disciplina</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% else %>
 
-  <tbody>
-    <% @turmas.each do |turma| %>
-      <tr>
-        <td><%= turma.codigo %></td>
-        <td><%= turma.turno %></td>
-        <td><%= turma.semestre %></td>
-        <td><%= turma.capacidade %></td>
-        <td><%= turma.funcionario.nome %></td>
-        <td><%= turma.disciplina.nome %></td>
-        <td><%= link_to 'Mostrar |', turma %></td>
-        <td><%= link_to 'Editar |', edit_turma_path(turma) %></td>
-        <td><%= link_to 'Apagar', turma, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "users_index" %>
 
-<br>
-
-<%= link_to 'Nova Turma', new_turma_path %>
+<% end %>

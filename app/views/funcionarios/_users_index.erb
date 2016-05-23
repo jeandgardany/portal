@@ -1,0 +1,40 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Matricula &nbsp;&nbsp;</th>
+      <th>Nascimento &nbsp;</th>
+      <th>Endereço &nbsp;&nbsp;</th>
+      <th>Admissão &nbsp;&nbsp;</th>
+      <th>Usuário &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Função &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Sexo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>CPF &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>RG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.matricula %></td>
+        <td><%= funcionario.nascimento %></td>
+        <td><%= funcionario.endereco %></td>
+        <td><%= funcionario.admissao %></td>
+        <td><%= funcionario.user.email %></td>
+        <td><%= funcionario.funcao.cargo %></td>
+        <td><%= funcionario.sexo %></td>
+        <td><%= funcionario.cpf %></td>
+        <td><%= funcionario.rg %></td>
+        <td><%= funcionario.status %></td>
+      </tr>
+    <% end %>
+    <%= paginate @funcionarios %>
+  </tbody>
+</table>
+
+<br>

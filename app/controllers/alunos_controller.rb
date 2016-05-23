@@ -1,4 +1,5 @@
 class AlunosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
   before_action :set_disciplina, only: [:edit, :update, :new]
 
@@ -29,7 +30,7 @@ class AlunosController < ApplicationController
 
     respond_to do |format|
       if @aluno.save
-        format.html { redirect_to @aluno, notice: 'Aluno was successfully created.' }
+        format.html { redirect_to @aluno, notice: 'Aluno foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @aluno }
       else
         format.html { render :new }

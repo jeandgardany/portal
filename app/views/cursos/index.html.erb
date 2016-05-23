@@ -2,32 +2,12 @@
 
 <h1>Cursos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Código &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Duração &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Tipo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if policy(@cursos).index? %>
 
-  <tbody>
-    <% @cursos.each do |curso| %>
-      <tr>
-        <td><%= curso.nome %></td>
-        <td><%= curso.codigo %></td>
-        <td><%= curso.duracao %></td>
-        <td><%= curso.tipo %></td>
-        <td><%= link_to 'Mostrar |', curso %></td>
-        <td><%= link_to 'Editar |', edit_curso_path(curso) %></td>
-        <td><%= link_to 'Apagar', curso, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "admin_index" %>
 
-<br>
+<% else %>
 
-<%= link_to 'Novo Curso', new_curso_path %>
+<%= render partial: "users_index" %>
+
+<% end %>

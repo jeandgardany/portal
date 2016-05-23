@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'controle_usuarios/index'
   resources :alunos
   resources :turmas
   resources :disciplinas
