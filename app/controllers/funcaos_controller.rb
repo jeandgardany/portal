@@ -5,12 +5,13 @@ class FuncaosController < ApplicationController
   # GET /funcaos
   # GET /funcaos.json
   def index
-    @funcaos = Funcao.all
+    @funcaos = Funcao.all.page(params['page']).per(5)
   end
 
   # GET /funcaos/1
   # GET /funcaos/1.json
   def show
+    @funcaos = Funcao.all
   end
 
   # GET /funcaos/new

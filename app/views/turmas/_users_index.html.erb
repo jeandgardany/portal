@@ -1,29 +1,34 @@
-
-<table>
+<%- model_class = Turma -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Código</th>
-      <th>Turno</th>
-      <th>Semestre</th>
-      <th>Capacidade</th>
-      <th>Funcionário</th>
-      <th>Disciplina</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:codigo) %></th>
+      <th><%= model_class.human_attribute_name(:turno) %></th>
+      <th><%= model_class.human_attribute_name(:semestre) %></th>
+      <th><%= model_class.human_attribute_name(:capacidade) %></th>
+      <th><%= model_class.human_attribute_name(:funcionario_id) %></th>
+      <th><%= model_class.human_attribute_name(:disciplina_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @turmas.each do |turma| %>
       <tr>
+        <td><%= link_to turma.id, turma_path(turma) %></td>
         <td><%= turma.codigo %></td>
         <td><%= turma.turno %></td>
         <td><%= turma.semestre %></td>
         <td><%= turma.capacidade %></td>
         <td><%= turma.funcionario.nome %></td>
-        <td><%= turma.disciplina.nome %></td>
+        <td><%= turma.disciplina.codigo %></td>
+        <td><%=l turma.created_at %></td>
+
       </tr>
     <% end %>
+    <%= paginate @turmas %>
   </tbody>
 </table>
-
-<br>

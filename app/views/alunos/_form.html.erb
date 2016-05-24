@@ -1,61 +1,114 @@
-<%= form_for(@aluno) do |f| %>
-  <% if @aluno.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+<%= form_for @aluno, :html => { :class => "form-horizontal aluno" } do |f| %>
 
-      <ul>
-      <% @aluno.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @aluno.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @aluno.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
   </div>
-  <div class="field">
-    <%= f.label :matricula %><br>
-    <%= f.text_field :matricula %>
+  <div class="form-group">
+    <%= f.label :matricula, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :matricula, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:matricula) %>
   </div>
-  <div class="field">
-    <%= f.label :sexo %><br>
-    <%= f.select(:sexo, ["Masculino","Feminino"], prompt: true) %>
+  <div class="form-group">
+    <%= f.label :data_nascimento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_select :data_nascimento, :start_year => 1950, :order => [:day, :month, :year], :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:data_nascimento) %>
   </div>
-  <div class="field">
-    <%= f.label :data_nascimento %><br>
-    <%= f.date_select :data_nascimento %>
+  <div class="form-group">
+    <%= f.label :endereco, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :endereco, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:endereco) %>
   </div>
-  <div class="field">
-    <%= f.label :endereco %><br>
-    <%= f.text_field :endereco %>
+  <div class="form-group">
+    <%= f.label :cpf, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cpf, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cpf) %>
   </div>
-  <div class="field">
-    <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
+  <div class="form-group">
+    <%= f.label :rg, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :rg, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:rg) %>
   </div>
-  <div class="field">
-    <%= f.label :rg %><br>
-    <%= f.text_field :rg %>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:status, ['Ativo', 'Inativo']) %>
+    </div>
+    <%=f.error_span(:status) %>
   </div>
-  <div class="field">
-    <%= f.label :user_id, "E-mail" %><br>
-    <%= f.collection_select :user_id, User.all, :id, :email, prompt: "Selecione" %>
+  <div class="form-group">
+    <%= f.label :user_id, "Email", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :user_id, User.all, :id, :email, prompt: "Selecione", 
+      :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
   </div>
-  <div class="field">
-    <%= f.label :curso_id %><br>
-    <%= f.collection_select :curso_id, Curso.all, :id, :nome, prompt: "Selecione" %>
+  <div class="form-group">
+    <%= f.label :curso_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+    <%=f.collection_select :curso_id, Curso.all, :id, :nome, prompt: "Selecione", :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:curso_id) %>
   </div>
-  <div class="field">
-    <%= f.label :turma_id %><br>
-    <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione" %>
+  <div class="form-group">
+    <%= f.label :disciplina_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+       <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione", 
+      :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:disciplina_id) %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.select(:status, ["Ativo", "Inativo"]) %>
+  <div class="form-group">
+    <%= f.label :turma_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione", 
+      :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:turma_id) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :sexo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:sexo, ["Masculino","Feminino"], prompt: "Selecione") %>
+    </div>
+    <%=f.error_span(:sexo) %>
   </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                alunos_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
 <% end %>

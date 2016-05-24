@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_one :funcionario
   has_one :alunos
 
+  
 end

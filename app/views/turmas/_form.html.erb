@@ -1,41 +1,69 @@
-<%= form_for(@turma) do |f| %>
-  <% if @turma.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
+<%= form_for @turma, :html => { :class => "form-horizontal turma" } do |f| %>
 
-      <ul>
-      <% @turma.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @turma.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@turma.errors.count, "error") %> prohibited this turma from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @turma.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :codigo, "Código" %><br>
-    <%= f.text_field :codigo %>
+  <div class="form-group">
+    <%= f.label :codigo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :codigo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:codigo) %>
   </div>
-  <div class="field">
-    <%= f.label :turno, "Turno" %><br>
-    <%= f.select(:turno, ["Manha", "Tarde", "Noite"], prompt: "Selecione") %>
+  <div class="form-group">
+    <%= f.label :turno, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :turno, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:turno) %>
   </div>
-  <div class="field">
-    <%= f.label :semestre, "Semestre" %><br>
-    <%= f.text_field :semestre %>
+  <div class="form-group">
+    <%= f.label :semestre, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :semestre, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:semestre) %>
   </div>
-  <div class="field">
-    <%= f.label :capacidade, "Capacidade" %><br>
-    <%= f.number_field :capacidade %>
+  <div class="form-group">
+    <%= f.label :capacidade, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :capacidade, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:capacidade) %>
   </div>
-  <div class="field">
-    <%= f.label :funcionario_id, "Funcionário" %><br>
-    <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome %>
+  <div class="form-group">
+    <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :funcionario_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:funcionario_id) %>
   </div>
-  <div class="field">
-    <%= f.label :disciplina_id, "Disciplina" %><br>
-    <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome %>
+  <div class="form-group">
+    <%= f.label :disciplina_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :disciplina_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:disciplina_id) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                turmas_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>

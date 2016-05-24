@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>:: Funções ::</h1>
 <% if policy(@funcaos).index? %>
+
 <%= render partial: "admin_index" %>
 
 <% else %>
 
 <%= render partial: "users_index" %>
 
-<% end %>
+<% end %> 

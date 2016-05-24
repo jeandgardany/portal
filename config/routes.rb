@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'  
   root 'users#index'
-  match 'index' => 'funcionarios#index', via: 'get'
+  #match 'index' => 'funcionarios#index', via: 'get'
    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

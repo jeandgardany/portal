@@ -1,24 +1,39 @@
-
-<table>
+<%- model_class = Funcao -%>
+<div class="page-header">
+  <h1><%= t(".Funções") %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Cargo</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:cargo) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @funcaos.each do |funcao| %>
       <tr>
+        <td><%= link_to funcao.id, funcao_path(funcao) %></td>
         <td><%= funcao.cargo %></td>
-        <td><%= link_to 'Mostrar |', funcao %></td>
-        <td><%= link_to 'Editar |', edit_funcao_path(funcao) %></td>
-        <td><%= link_to 'Apagar', funcao, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%=l funcao.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_funcao_path(funcao), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      funcao_path(funcao),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Mostrar', funcao, :class => 'btn btn-default btn-xs'%>
+        </td>
       </tr>
+     
     <% end %>
+    <%= paginate @funcaos %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Novo Funçao', new_funcao_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_funcao_path,
+            :class => 'btn btn-primary' %>

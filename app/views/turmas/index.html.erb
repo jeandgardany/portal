@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Turmas</h1>
 <% if policy(@turmas).index? %>
+
 <%= render partial: "admin_index" %>
 
 <% else %>
 
 <%= render partial: "users_index" %>
 
-<% end %>
+<% end %> 

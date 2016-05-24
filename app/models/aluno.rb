@@ -6,6 +6,7 @@ class Aluno < ActiveRecord::Base
 
   validates :nome, :matricula, :data_nascimento, :endereco, :cpf, :rg, :status, :sexo, presence: true 
   validates :matricula, :cpf, :rg, uniqueness: true
+  has_attached_file :imagem, styles: { small: "64x64", med: "100x100", large: "200x200" }
 
   def disciplinas_nome
   	if self.disciplinas.blank?

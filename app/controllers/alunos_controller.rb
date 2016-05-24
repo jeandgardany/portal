@@ -6,7 +6,7 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all
+    @alunos = Aluno.all.page(params['page']).per(5) #Paginação no Index
   end
 
   # GET /alunos/1

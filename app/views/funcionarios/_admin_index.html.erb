@@ -1,45 +1,56 @@
-
-<table>
+<%- model_class = Funcionario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Matricula &nbsp;&nbsp;</th>
-      <th>Nascimento &nbsp;</th>
-      <th>Endereço &nbsp;&nbsp;</th>
-      <th>Admissão &nbsp;&nbsp;</th>
-      <th>Usuário &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Função &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Sexo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>CPF &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>RG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:matricula) %></th>
+      <th><%= model_class.human_attribute_name(:nascimento) %></th>
+      <th><%= model_class.human_attribute_name(:endereco) %></th>
+      <th><%= model_class.human_attribute_name(:admissao) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:funcao_id) %></th>
+      <th><%= model_class.human_attribute_name(:sexo) %></th>
+      <th><%= model_class.human_attribute_name(:cpf) %></th>
+      <th><%= model_class.human_attribute_name(:rg) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @funcionarios.each do |funcionario| %>
       <tr>
+        <td><%= link_to funcionario.id, funcionario_path(funcionario) %></td>
         <td><%= funcionario.nome %></td>
         <td><%= funcionario.matricula %></td>
         <td><%= funcionario.nascimento %></td>
         <td><%= funcionario.endereco %></td>
         <td><%= funcionario.admissao %></td>
+        <td><%= funcionario.status %></td>
         <td><%= funcionario.user.email %></td>
         <td><%= funcionario.funcao.cargo %></td>
         <td><%= funcionario.sexo %></td>
         <td><%= funcionario.cpf %></td>
         <td><%= funcionario.rg %></td>
-        <td><%= funcionario.status %></td>
-        <td><%= link_to 'Mostrar |', funcionario %></td>
-        <td><%= link_to 'Editar |', edit_funcionario_path(funcionario) %></td>
-        <td><%= link_to 'Apagar', funcionario, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_funcionario_path(funcionario), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      funcionario_path(funcionario),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Mostrar', funcionario, :class => 'btn btn-default btn-xs'%>
+        </td>
       </tr>
     <% end %>
     <%= paginate @funcionarios %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Novo Funcionario', new_funcionario_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_funcionario_path,
+            :class => 'btn btn-primary' %>
