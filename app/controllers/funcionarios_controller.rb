@@ -1,6 +1,6 @@
 class FuncionariosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_funcionario, only: [:show, :edit, :update, :destroy, :new]
+  before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
 
   # GET /funcionarios
   # GET /funcionarios.json
@@ -11,7 +11,6 @@ class FuncionariosController < ApplicationController
   # GET /funcionarios/1
   # GET /funcionarios/1.json
   def show
-    @funcionario = Funcionario.find(params[:id])
   end
 
   # GET /funcionarios/new
@@ -59,7 +58,7 @@ class FuncionariosController < ApplicationController
   # DELETE /funcionarios/1
   # DELETE /funcionarios/1.json
   def destroy
-    @funcionario.destroy
+   authorize @funcionario.destroy
     respond_to do |format|
       format.html { redirect_to funcionarios_url, notice: 'Funcionario was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,11 +68,11 @@ class FuncionariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_funcionario
-      @funcionario = Funcionario.find(params[:id])
+      authorize @funcionario = Funcionario.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funcionario_params
-      params.require(:funcionario).permit(:nome, :matricula, :nascimento, :endereco, :admissao, :user_id, :funcao_id, :sexo, :cpf, :rg, :status)
+      params.require(:funcionario).permit(:matricula, :nome, :nascimento, :sexo, :cpf, :rg, :endereco, :admissao, :salario, :status, :user_id, :funcao_id, :created_at, :updated_at)
     end
 end

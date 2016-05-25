@@ -1,8 +1,8 @@
 class Aluno < ActiveRecord::Base
   belongs_to :user
   belongs_to :curso
-  has_many :disciplinas
-  belongs_to :turma
+  has_and_belongs_to_many :disciplinas
+  has_and_belongs_to_many :turmas
 
   validates :nome, :matricula, :data_nascimento, :endereco, :cpf, :rg, :status, :sexo, presence: true 
   validates :matricula, :cpf, :rg, uniqueness: true

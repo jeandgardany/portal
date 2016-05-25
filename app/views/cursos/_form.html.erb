@@ -39,7 +39,7 @@
   <div class="form-group">
     <%= f.label :tipo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :tipo, :class => 'form-control' %>
+      <%= f.select(:tipo, ["Bacharelado", "Tecnólogo", "Especialização", "Pos-Graduação", "Doutorado"], prompt: "Selecione") %>
     </div>
     <%=f.error_span(:tipo) %>
   </div>

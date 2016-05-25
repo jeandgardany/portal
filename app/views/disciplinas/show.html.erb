@@ -9,13 +9,15 @@
   <dt><strong><%= model_class.human_attribute_name(:codigo) %>:</strong></dt>
   <dd><%= @disciplina.codigo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
-  <dd><%= @disciplina.curso_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:funcao_id) %>:</strong></dt>
-  <dd><%= @disciplina.funcao_id %></dd>
+  <dd><%= @disciplina.curso.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:funcionario_id) %>:</strong></dt>
-  <dd><%= @disciplina.funcionario_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:aluno_id) %>:</strong></dt>
-  <dd><%= @disciplina.aluno_id %></dd>
+  <dd><%= @disciplina.funcionario.nome %></dd>
+  <p>
+  <strong>Alunos:</strong>
+  <% @disciplina.turma.alunos.each do |aluno| %>
+  <li><%= "Matricula: #{aluno.matricula} - Nome: #{aluno.nome}" %></li>
+  <% end %>
+</p>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

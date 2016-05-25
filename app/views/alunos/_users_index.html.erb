@@ -9,22 +9,21 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:matricula) %></th>
-      <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
-      <th><%= model_class.human_attribute_name(:endereco) %></th>
+      <th><%= "Matrícula" %></th>
+      <th><%= "Nascimento" %></th>
+      <th><%= "Endereço" %></th>
       <th><%= model_class.human_attribute_name(:cpf) %></th>
       <th><%= model_class.human_attribute_name(:rg) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= "Usuário" %></th>
       <th><%= model_class.human_attribute_name(:curso_id) %></th>
-      <th><%= model_class.human_attribute_name(:turma_id) %></th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
     </tr>
   </thead>
   <tbody>
     <% @alunos.each do |aluno| %>
       <tr>
-        <td><%= link_to aluno.id, aluno_path(aluno) %></td>
+        <td><%= aluno.id %></td>
         <td><%= aluno.nome %></td>
         <td><%= aluno.matricula %></td>
         <td><%= aluno.data_nascimento %></td>
@@ -34,8 +33,8 @@
         <td><%= aluno.status %></td>
         <td><%= aluno.user.email %></td>
         <td><%= aluno.curso.nome %></td>
-        <td><%= aluno.turma.codigo %></td>
         <td><%= aluno.sexo %></td>
+        <td>
        
       </tr>
     <% end %>

@@ -1,11 +1,12 @@
 class TurmasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
+  before_filter :alunos_turmas, only: [:new,:create, :edit, :update]
 
   # GET /turmas
   # GET /turmas.json
   def index
-    @turmas = Turma.all.page(params['page']).per(5)
+    @turmas = Turma.all.page(params['page']).per(5) 
   end
 
   # GET /turmas/1
@@ -65,11 +66,16 @@ class TurmasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_turma
-      @turma = Turma.find(params[:id])
+     authorize @turma = Turma.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turma_params
-      params.require(:turma).permit(:codigo, :turno, :semestre, :capacidade, :funcionario_id, :disciplina_id)
+      params.require(:turma).permit( :codigo, :turno, :semestre, :capacidade, :funcionario_id, :disciplina_id, {:aluno_ids => []})
     end
+    protected
+  def alunos_turmas
+    @disciplinas = Disciplina.all
+    @alunos = Aluno.all
+  end
 end

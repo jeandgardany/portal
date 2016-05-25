@@ -7,18 +7,17 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:matricula) %></th>
-      <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
-      <th><%= model_class.human_attribute_name(:endereco) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Matrícula" %></th>
+      <th><%= "Nascimento" %></th>
+      <th><%= "Endereço" %></th>
       <th><%= model_class.human_attribute_name(:cpf) %></th>
       <th><%= model_class.human_attribute_name(:rg) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:curso_id) %></th>
-      <th><%= model_class.human_attribute_name(:turma_id) %></th>
+      <th><%= "Usuário" %></th>
+      <th><%= model_class.human_attribute_name(:curso_id) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -34,7 +33,6 @@
         <td><%= aluno.status %></td>
         <td><%= aluno.user.email %></td>
         <td><%= aluno.curso.nome %></td>
-        <td><%= aluno.turma.codigo %></td>
         <td><%= aluno.sexo %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

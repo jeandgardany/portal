@@ -6,27 +6,25 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:codigo) %></th>
+      <th><%= "Código" %></th>
       <th><%= model_class.human_attribute_name(:turno) %></th>
       <th><%= model_class.human_attribute_name(:semestre) %></th>
       <th><%= model_class.human_attribute_name(:capacidade) %></th>
-      <th><%= model_class.human_attribute_name(:funcionario_id) %></th>
+      <th><%= "Funcionário" %></th>
       <th><%= model_class.human_attribute_name(:disciplina_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
   <tbody>
     <% @turmas.each do |turma| %>
       <tr>
-        <td><%= link_to turma.id, turma_path(turma) %></td>
+        <td><%= turma.id %></td>
         <td><%= turma.codigo %></td>
         <td><%= turma.turno %></td>
         <td><%= turma.semestre %></td>
         <td><%= turma.capacidade %></td>
         <td><%= turma.funcionario.nome %></td>
-        <td><%= turma.disciplina.codigo %></td>
-        <td><%=l turma.created_at %></td>
-
+        <td><%= turma.disciplina.nome %></td>
+        <td>
       </tr>
     <% end %>
     <%= paginate @turmas %>

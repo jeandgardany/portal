@@ -1,3 +1,5 @@
+<% if policy(@turma).edit? %>
+
 <%= form_for @turma, :html => { :class => "form-horizontal turma" } do |f| %>
 
   <% if @turma.errors.any? %>
@@ -25,7 +27,7 @@
   <div class="form-group">
     <%= f.label :turno, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :turno, :class => 'form-control' %>
+      <%= f.select(:turno, ["Manhã","Tarde", "Noite", "Manhã e Tarde", "Manhã e Noite", "Tarde e Noite"], prompt: "Selecione") %>
     </div>
     <%=f.error_span(:turno) %>
   </div>
@@ -38,24 +40,31 @@
   </div>
   <div class="form-group">
     <%= f.label :capacidade, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :capacidade, :class => 'form-control' %>
+    <div class="col-lg-2">
+      <%= f.number_field :capacidade, :class => 'form-control' %>
     </div>
     <%=f.error_span(:capacidade) %>
   </div>
   <div class="form-group">
     <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :funcionario_id, :class => 'form-control' %>
+      <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true, :class => 'form-control' %>
     </div>
     <%=f.error_span(:funcionario_id) %>
   </div>
   <div class="form-group">
     <%= f.label :disciplina_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :disciplina_id, :class => 'form-control' %>
+      <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome, prompt: true, :class => 'form-control' %>
     </div>
     <%=f.error_span(:disciplina_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :aluno_ids, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :aluno_ids, Aluno.all, :id, :nome, {}, {:multiple => true, class: 'select2 '} %>
+    </div>
+    <%=f.error_span(:aluno_ids) %>
   </div>
 
   <div class="form-group">
@@ -67,3 +76,8 @@
   </div>
 
 <% end %>
+
+<% else %>
+
+<% end %>
+

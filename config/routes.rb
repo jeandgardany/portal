@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   resources :cursos
   resources :funcionarios
   resources :funcaos
-  devise_for :users
+  #devise_for :users
+  resources :users, only: [:show, :edit, :update]
+  devise_for :users, :skip => [:registrations]                                          
   get    'sign_in'   => 'sessions#new'
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'  
   root 'users#index'
-  #match 'index' => 'funcionarios#index', via: 'get'
+    #match 'index' => 'funcionarios#index', via: 'get'
    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

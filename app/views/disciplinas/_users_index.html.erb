@@ -9,22 +9,18 @@
       <th><%= model_class.human_attribute_name(:nome) %></th>
       <th><%= model_class.human_attribute_name(:codigo) %></th>
       <th><%= model_class.human_attribute_name(:curso_id) %></th>
-      <th><%= model_class.human_attribute_name(:funcao_id) %></th>
       <th><%= model_class.human_attribute_name(:funcionario_id) %></th>
-      <th><%= model_class.human_attribute_name(:aluno_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= "Cadastrado em" %></th>
     </tr>
   </thead>
   <tbody>
     <% @disciplinas.each do |disciplina| %>
       <tr>
-        <td><%= link_to disciplina.id, disciplina_path(disciplina) %></td>
+        <td><%= disciplina.id %></td>
         <td><%= disciplina.nome %></td>
         <td><%= disciplina.codigo %></td>
         <td><%= disciplina.curso.nome %></td>
-        <td><%= disciplina.funcao.cargo %></td>
         <td><%= disciplina.funcionario.nome %></td>
-        <td><%= disciplina.aluno_id %></td>
         <td><%=l disciplina.created_at %></td>
         
       </tr>
@@ -32,4 +28,3 @@
     <%= paginate @disciplinas %>
   </tbody>
 </table>
-.nome

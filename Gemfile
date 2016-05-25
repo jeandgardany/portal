@@ -10,7 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'cancan'
 gem 'pundit'
 gem "kaminari"
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", "~> 3.0"
+gem "cocoon"
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
@@ -20,6 +21,8 @@ group :development do
   gem 'spring'
 end
 gem 'bootstrap-sass'
+gem "twitter-bootstrap-rails"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'devise'
 gem 'high_voltage'
 gem 'mysql2', '~> 0.3.18'

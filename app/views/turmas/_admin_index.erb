@@ -6,13 +6,12 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:codigo) %></th>
+      <th><%= "Código" %></th>
       <th><%= model_class.human_attribute_name(:turno) %></th>
       <th><%= model_class.human_attribute_name(:semestre) %></th>
       <th><%= model_class.human_attribute_name(:capacidade) %></th>
-      <th><%= model_class.human_attribute_name(:funcionario_id) %></th>
+      <th><%= "Funcionário" %></th>
       <th><%= model_class.human_attribute_name(:disciplina_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -25,8 +24,7 @@
         <td><%= turma.semestre %></td>
         <td><%= turma.capacidade %></td>
         <td><%= turma.funcionario.nome %></td>
-        <td><%= turma.disciplina.codigo %></td>
-        <td><%=l turma.created_at %></td>
+        <td><%= turma.disciplina.nome %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_turma_path(turma), :class => 'btn btn-default btn-xs' %>

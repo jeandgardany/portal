@@ -6,18 +6,16 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:matricula) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Matrícula" %></th>
       <th><%= model_class.human_attribute_name(:nascimento) %></th>
-      <th><%= model_class.human_attribute_name(:endereco) %></th>
-      <th><%= model_class.human_attribute_name(:admissao) %></th>
+      <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Admissão" %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:funcao_id) %></th>
+      <th><%= "Usuário" %></th>
+      <th><%= "Cargo" %></th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
-      <th><%= model_class.human_attribute_name(:cpf) %></th>
-      <th><%= model_class.human_attribute_name(:rg) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -33,8 +31,6 @@
         <td><%= funcionario.user.email %></td>
         <td><%= funcionario.funcao.cargo %></td>
         <td><%= funcionario.sexo %></td>
-        <td><%= funcionario.cpf %></td>
-        <td><%= funcionario.rg %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_funcionario_path(funcionario), :class => 'btn btn-default btn-xs' %>

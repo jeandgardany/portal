@@ -7,16 +7,16 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:codigo) %></th>
-      <th><%= model_class.human_attribute_name(:duracao) %></th>
+      <th><%= "Código" %></th>
+      <th><%= "Duração" %></th>
       <th><%= model_class.human_attribute_name(:tipo) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= "Cadastrado em" %></th>
     </tr>
   </thead>
   <tbody>
     <% @cursos.each do |curso| %>
       <tr>
-        <td><%= link_to curso.id, curso_path(curso) %></td>
+        <td><%= curso.id %></td>
         <td><%= curso.nome %></td>
         <td><%= curso.codigo %></td>
         <td><%= curso.duracao %></td>

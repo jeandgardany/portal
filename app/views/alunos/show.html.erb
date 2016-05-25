@@ -19,13 +19,9 @@
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @aluno.status %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @aluno.user_id %></dd>
+  <dd><%= @aluno.user.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
   <dd><%= @aluno.curso_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:disciplina_id) %>:</strong></dt>
-  <dd><%= @aluno.disciplina_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:turma_id) %>:</strong></dt>
-  <dd><%= @aluno.turma_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
   <dd><%= @aluno.sexo %></dd>
 </dl>

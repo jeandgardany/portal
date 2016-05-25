@@ -79,22 +79,7 @@
     </div>
     <%=f.error_span(:curso_id) %>
   </div>
-  <div class="form-group">
-    <%= f.label :disciplina_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-       <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione", 
-      :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:disciplina_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :turma_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.collection_select :turma_id, Turma.all, :id, :codigo, prompt: "Selecione", 
-      :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:turma_id) %>
-  </div>
+    
   <div class="form-group">
     <%= f.label :sexo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">

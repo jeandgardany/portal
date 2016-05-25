@@ -1,8 +1,7 @@
 class AlunosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
-  before_action :set_disciplina, only: [:edit, :update, :new]
-
+  
   # GET /alunos
   # GET /alunos.json
   def index
@@ -66,14 +65,11 @@ class AlunosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_aluno
-      @aluno = Aluno.find(params[:id])
+     authorize @aluno = Aluno.find(params[:id])
     end
-    def set_disciplina
-      @disciplinas = Disciplina.all
-    end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def aluno_params
-      params.require(:aluno).permit(:nome, :matricula, :data_nascimento, :endereco, :cpf, :rg, :user_id, :curso_id, :disciplina_id, :turma_id, :status, :sexo)
+      params.require(:aluno).permit(:nome, :matricula, :data_nascimento, :endereco, :cpf, :rg, :mensalidade, :user_id, :curso_id, :status, :sexo)
     end
 end

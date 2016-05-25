@@ -13,7 +13,7 @@
   <tbody>
     <% @funcaos.each do |funcao| %>
       <tr>
-        <td><%= link_to funcao.id, funcao_path(funcao) %></td>
+        <td><%= funcao.id %></td>
         <td><%= funcao.cargo %></td>
         <td><%=l funcao.created_at %></td>
         
